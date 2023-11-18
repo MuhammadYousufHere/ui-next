@@ -1,16 +1,18 @@
 'use client'
 
-import { CssBaseline, Slide, Box } from '@mui/material'
+import { CssBaseline, Slide, Box, GlobalStyles } from '@mui/material'
 import { usePathname } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
-// import { NextAppDirEmotionCacheProvider as EmotionCacheProvider } from 'tss-react/next/appDir'
 import {
   Experimental_CssVarsProvider as CssVarsProvider,
   getInitColorSchemeScript,
   experimental_extendTheme as extendTheme
 } from '@mui/material/styles'
-import themes from './themes'
+
 import EmotionCacheProvider from './EmotionCacheProvider'
+import { css } from '@emotion/react'
+
+import themes from './themes'
 
 type MuiProviderProps = {
   children: React.ReactNode
@@ -33,8 +35,10 @@ export default function MuiProvider({ children }: MuiProviderProps) {
   const extendedTheme = extendTheme({
     colorSchemes: themes
   })
-
-  getInitColorSchemeScript()
+  getInitColorSchemeScript({
+    defaultMode: 'dark',
+    defaultDarkColorScheme: 'dark'
+  })
 
   return (
     <EmotionCacheProvider
@@ -42,8 +46,28 @@ export default function MuiProvider({ children }: MuiProviderProps) {
         key: 'css'
       }}
     >
-      <CssVarsProvider theme={extendedTheme}>
+      <CssVarsProvider
+        theme={extendedTheme}
+        defaultMode='dark'
+        defaultColorScheme='dark'
+      >
         <CssBaseline />
+        <GlobalStyles
+          styles={css`
+            :root {
+              body {
+                background-color: var(--mui-palette-background-default);
+                color: #121212;
+              }
+            }
+            [data-mui-color-scheme='dark'] {
+              body {
+                background-color: var(--mui-palette-background-default);
+                color: #fff;
+              }
+            }
+          `}
+        />
         <Slide key={pathName} direction={direction} in={true} appear={mounted}>
           <Box>{children}</Box>
         </Slide>

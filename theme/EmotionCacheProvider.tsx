@@ -67,7 +67,6 @@ export default function EmotionCacheProvider(props: Props) {
         }
       }
     })
-
     return (
       <React.Fragment>
         {globals.map(({ name, style }) => (
@@ -86,6 +85,5 @@ export default function EmotionCacheProvider(props: Props) {
       </React.Fragment>
     )
   })
-
   return <CacheProvider value={registry.cache}>{children}</CacheProvider>
 }
