@@ -10,7 +10,7 @@ interface Props {
 export function ManageHeader({ label, description }: Props) {
   return (
     <Stack sx={{ pt: 3, mb: 1 }}>
-      <Typography variant='h6' sx={{ color: 'text.main' }}>
+      <Typography variant='h6' sx={{ color: 'text.primary' }}>
         {label}
       </Typography>
       <Typography variant='subtitle2' sx={{ color: 'text.secondary' }}>
