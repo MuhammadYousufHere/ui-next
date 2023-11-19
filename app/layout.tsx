@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import MuiProvider from '@/theme/MuiTheme'
 import './styles/globals.css'
+import AppLayout from './components/AppLayout'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({ weight: ['500', '600', '700'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Kosmic AI',
@@ -17,8 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={inter.className}>
-        <MuiProvider>{children}</MuiProvider>
+      <body className={poppins.className}>
+        <MuiProvider>
+          <AppLayout>{children}</AppLayout>
+        </MuiProvider>
       </body>
     </html>
   )
