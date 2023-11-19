@@ -1,8 +1,12 @@
-import { Typography } from '@/app/components/common'
-import { Box, Button, Container, Stack } from '@mui/material'
+import { Button, Typography } from '@/app/components/common'
+import { Box, Button as MuiButton, Container, Stack } from '@mui/material'
 import React from 'react'
 
-export default function Actions() {
+interface Props {
+  onNext?: () => void
+  onBack?: () => void
+}
+export default function Actions(props: Props) {
   return (
     <Container
       maxWidth={false}
@@ -18,47 +22,9 @@ export default function Actions() {
         alignItems: 'center'
       }}
     >
-      <Button
-        variant='outlined'
-        sx={{
-          borderRadius: '100vmax',
-          maxWidth: 'fit-content',
-          borderColor: 'text.secondary',
-          color: 'common.white',
-          fontWeight: 300,
-          fontSize: '0.82rem',
+      <Button as='Outlined' onClick={props.onBack} label='Back' />
 
-          px: 6,
-          textTransform: 'capitalize'
-        }}
-      >
-        Back
-      </Button>
-      <Button
-        variant='contained'
-        sx={{
-          borderRadius: '100vmax',
-          background: 'white',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          minWidth: 130,
-          fontWeight: 300,
-          fontSize: '0.82rem',
-          textTransform: 'capitalize',
-          '&:hover': {
-            bgcolor: '#f9f8f9'
-          },
-          '& p, & small': {
-            background:
-              '-webkit-linear-gradient(rgba(82,63,215,1) , rgba(255,125,255,1) )',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontSize: '0.9rem'
-          }
-        }}
-      >
-        <Typography display='flex'>Next</Typography>
+      <Button label='Next' onClick={props.onNext} as='Solid'>
         <Box
           display='flex'
           sx={{ alignItems: 'center', justifyContent: 'center' }}
