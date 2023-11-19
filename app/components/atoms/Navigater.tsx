@@ -2,11 +2,14 @@
 
 import { Button } from '@mui/material'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace'
+import { useRouter } from 'next/navigation'
 
 export function Navigater() {
+  const router = useRouter()
   return (
     <Button
       disableRipple
+      onClick={() => router.back()}
       sx={{
         borderRadius: '8px',
         p: 1.3,
