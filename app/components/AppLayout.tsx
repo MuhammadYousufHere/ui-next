@@ -7,6 +7,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
   return (
     <Container
       maxWidth={false}
+      disableGutters
       sx={{
         minHeight: '100dvh'
       }}
