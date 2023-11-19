@@ -16,8 +16,7 @@ export const ResultsList = styled('ul')(({ theme }) => ({
   fontSize: '0.9rem',
   fontWeight: 400,
   boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-  colorScheme: 'normal',
-  color: theme.palette.text.primary,
+  color: theme.palette.common.white,
   '& li': {
     cursor: 'pointer',
     padding: '12px 12px',
@@ -32,7 +31,7 @@ export const ResultsList = styled('ul')(({ theme }) => ({
 export const NoResultsText = styled('span')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   borderRadius: '8px',
-  color: theme.palette.text.primary,
+  color: theme.palette.common.white,
   margin: '4px 0 0',
   padding: '12px 12px',
   position: 'absolute',
