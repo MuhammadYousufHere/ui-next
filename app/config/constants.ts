@@ -1,0 +1,4 @@
+export const HEADER = {
+  MOBILE_HEIGHT: 54,
+  MAIN_DESKTOP_HEIGHT: 56
+}
