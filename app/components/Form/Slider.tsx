@@ -7,7 +7,7 @@ export const Slider = styled(MuiSlider)(({ theme }) => ({
   color: '#3a3940',
   backgroundClip: 'content-box',
   borderRadius: '10px',
-  height: 2.5,
+  height: 3,
   '& .MuiSlider-track': {
     backgroundImage:
       '-webkit-linear-gradient(rgba(82,63,215,1) , rgba(255,125,255,1) )',
