@@ -17,7 +17,6 @@ const nextConfig = {
     return config
   },
   images: {
-    domains: ['localhost:3000'],
     formats: ['image/webp', 'image/avif']
   }
 }
