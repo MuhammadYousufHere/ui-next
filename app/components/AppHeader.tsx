@@ -42,8 +42,6 @@ export default function AppHeader() {
           </Stack>
         </Wrapper>
         <Wrapper>
-          <ThemeSwitch />
-
           <Stack gap={0} display={['none', 'none', 'flex', 'flex']}>
             <Typography
               sx={{
