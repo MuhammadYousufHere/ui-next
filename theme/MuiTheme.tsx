@@ -68,8 +68,14 @@ export default function MuiProvider({ children }: MuiProviderProps) {
             }
           `}
         />
-        <Slide key={pathName} direction={direction} in={true} appear={mounted}>
-          <Box>{children}</Box>
+        <Slide
+          key={pathName}
+          direction={direction}
+          in={true}
+          appear={mounted}
+          timeout={500}
+        >
+          <Box display='flex'>{children}</Box>
         </Slide>
       </CssVarsProvider>
     </EmotionCacheProvider>
