@@ -25,7 +25,10 @@ export function Button({
         fontSize: '0.82rem',
 
         px: 6,
-        textTransform: 'capitalize'
+        textTransform: 'capitalize',
+        '&:hover': {
+          borderColor: 'text.secondary'
+        }
       }}
     >
       {label}
