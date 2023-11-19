@@ -7,8 +7,6 @@ import {
   KeyboardEvent,
   forwardRef
 } from 'react'
-
-import { useTheme, styled } from '@mui/material/styles'
 import { useAutocomplete } from '@mui/base'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import { WidthType } from './types'
