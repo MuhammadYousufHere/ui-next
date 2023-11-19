@@ -5,12 +5,34 @@ import { PillButton } from '@/app/components/common'
 import { contentTypes } from '@/data'
 import { Box, Stack } from '@mui/material'
 import { useState } from 'react'
-import SelectTypes from './SelectTypes'
+import SelectTypes, { Options } from './SelectTypes'
 import { TypeRange } from '.'
 
 interface Props {}
 export function ContentTypes(props: Props) {
   const [active, setActive] = useState('Fun')
+
+  const [formData, setFormData] = useState({
+    contentType: active,
+    subType: '',
+    wordRange: ''
+  })
+
+  /*
+   * Filter out the options
+   */
+  const options: Options[] = contentTypes
+    .filter(option => option.type.toLowerCase() === active.toLowerCase())
+    .reduce((curr: Options[], atom) => {
+      return curr.concat(
+        atom.subtypes.map(subtype => ({
+          value: subtype,
+          label: subtype
+        }))
+      )
+    }, [])
+
+  console.log(formData)
   return (
     <Stack>
       <TypesComponent label='What type of content are you creating?' />
@@ -25,13 +47,33 @@ export function ContentTypes(props: Props) {
           <PillButton
             label={content.type}
             key={content.type}
-            onClick={() => setActive(content.type)}
+            onClick={() => {
+              setActive(content.type)
+              setFormData(prev => ({ ...prev, contentType: content.type }))
+            }}
             isActive={content.type.toLowerCase() === active.toLowerCase()}
           />
         ))}
       </Box>
-      <SelectTypes type={active} />
-      <TypeRange />
+      <SelectTypes
+        type={active}
+        options={options}
+        value={formData.subType}
+        onChange={o =>
+          setFormData(prev => ({
+            ...prev,
+            subType: String(o.value)
+          }))
+        }
+      />
+      <TypeRange
+        onChange={e =>
+          setFormData(prev => ({
+            ...prev,
+            wordRange: e.target.value
+          }))
+        }
+      />
     </Stack>
   )
 }

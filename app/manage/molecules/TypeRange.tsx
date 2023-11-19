@@ -1,9 +1,12 @@
 import { Slider } from '@/app/components/Form'
 import { Typography } from '@/app/components/common'
 import { Box, Stack } from '@mui/material'
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 
-export function TypeRange() {
+type Props = {
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+}
+export function TypeRange(props: Props) {
   return (
     <Stack mb={2} mt={0.6}>
       <Typography variant='subtitle1' sx={{ fontSize: '0.9rem' }}>
@@ -27,10 +30,12 @@ export function TypeRange() {
           100
         </Typography>
         <Slider
-          defaultValue={400}
+          defaultValue={200}
           min={100}
           max={1000}
           valueLabelDisplay='on'
+          // @ts-ignore
+          onChange={props.onChange}
         />
         <Typography variant='subtitle2' sx={{ fontSize: '0.75rem' }}>
           1000
