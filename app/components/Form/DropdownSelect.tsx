@@ -14,10 +14,9 @@ import { Box } from '@mui/material'
 import TextInput from './Input'
 import { NoResultsText, ResultsList } from './atoms'
 
-type Value = string | number
 type Options = {
   label: string
-  value: Value
+  value: string
 }
 export interface DropdownSelectProps
   extends Omit<HTMLProps<HTMLInputElement>, 'as' | 'ref'> {

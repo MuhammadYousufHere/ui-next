@@ -10,7 +10,7 @@ interface Props {
   value: string
   onChange: (_newValue: Options) => void
 }
-export type Options = { label: string; value: string | number }
+export type Options = { label: string; value: string }
 
 export default function SelectTypes({ type, options, value, onChange }: Props) {
   const typesRef = useRef<HTMLInputElement>(null)

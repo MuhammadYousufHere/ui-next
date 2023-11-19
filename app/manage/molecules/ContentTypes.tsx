@@ -59,12 +59,14 @@ export function ContentTypes(props: Props) {
         type={active}
         options={options}
         value={formData.subType}
-        onChange={o =>
-          setFormData(prev => ({
-            ...prev,
-            subType: String(o.value)
-          }))
-        }
+        onChange={o => {
+          if (o?.value) {
+            setFormData(prev => ({
+              ...prev,
+              subType: o.value
+            }))
+          }
+        }}
       />
       <TypeRange
         onChange={e =>
