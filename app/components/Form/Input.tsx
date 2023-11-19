@@ -25,8 +25,9 @@ export const StyledInput = styled('input')`
   color-scheme: normal;
   border-width: 0;
   font-family: ${({ theme }) => theme.typography.fontFamily};
+  color: ${({ theme }) => theme.palette.common.white};
   padding: 0.8rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   &:focus {
     outline: red;
   }
@@ -39,7 +40,7 @@ export const StyledInput = styled('input')`
   }
   &::placeholder {
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.9rem;
     opacity: 0.9;
     color: #f9f8f9;
   }
