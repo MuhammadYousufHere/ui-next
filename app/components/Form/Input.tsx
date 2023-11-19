@@ -99,12 +99,11 @@ const TextInput: ForwardRefRenderFunction<HTMLInputElement, TextInputProps> = (
       direction='column'
       spacing='4px'
       sx={{
-        margin: ['0 1', '0 auto', '0.4rem 0'],
+        margin: ['0 1', '0 auto', '0.4rem 0', '0.4rem 0'],
         maxWidth: widthType === 'default' ? '470px' : '100%',
         opacity: disabled ? 0.5 : 1,
         textAlign: 'left',
-        width: '100%',
-        marginBlock: '3rem'
+        width: '100%'
       }}
     >
       {!!label && (
@@ -134,12 +133,7 @@ const TextInput: ForwardRefRenderFunction<HTMLInputElement, TextInputProps> = (
           borderStyle: 'solid',
           borderWidth: 1,
           borderRadius: '6px',
-          overflow: 'hidden',
-          '&.focused': {
-            // boxShadow: `0 0 0 3px ${
-            //   theme.palette.mode === 'dark' ? blue[500] : blue[200]
-            // }`
-          }
+          overflow: 'hidden'
         }}
       >
         <StyledRootElement>
