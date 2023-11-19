@@ -66,6 +66,7 @@ const DropdownSelect: ForwardRefRenderFunction<
     getRootProps,
     groupedOptions,
     popupOpen,
+
     inputValue,
     focused,
     dirty
@@ -128,7 +129,7 @@ const DropdownSelect: ForwardRefRenderFunction<
           errorMessage={errorMessage}
           label={label}
           name={name}
-          placeholder={placeholder}
+          placeholder={focused ? 'Search' : placeholder}
           onKeyDown={preventFormSubmit}
         />
       </div>
