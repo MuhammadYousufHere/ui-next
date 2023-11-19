@@ -14,7 +14,7 @@ export function PillButton({ label, isActive, ...rest }: Props) {
         borderRadius: '100vmax',
         maxWidth: 'fit-content',
         borderColor: isActive ? '' : 'text.secondary',
-        color: 'text.primary',
+        color: isActive ? 'common.white' : 'text.primary',
         fontWeight: 300,
         fontSize: '0.82rem',
         textTransform: 'capitalize'
