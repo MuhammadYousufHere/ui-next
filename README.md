@@ -1,5 +1,12 @@
 This is a [Next.js](https://nextjs.org/) project using Material Ui with Typescript.
 
+### Prerequisites
+
+Make sure you have the following software installed on your machine:
+
+- [Node.js](https://nodejs.org/) (version 20 or above)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
+
 ## Getting Started
 
 First, Clone the project:
@@ -9,7 +16,13 @@ git clone https://github.com/MuhammadYousufHere/ui-next.git
 
 ```
 
-Next up, Install the required dependencies:
+Go into the project directory:
+
+```bash
+cd ui-next
+```
+
+Next up, Install the required dependencies (perfer yarn):
 
 ```bash
 yarn install
