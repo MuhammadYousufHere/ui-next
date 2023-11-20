@@ -25,8 +25,8 @@ export function Button({
 
         px: 6,
         textTransform: 'capitalize',
-        '&:hover': {
-          borderColor: 'text.secondary'
+        '&:hover, &:active': {
+          borderColor: 'secondary.main'
         },
         ...rest.sx
       }}
@@ -49,8 +49,10 @@ export function Button({
         fontSize: '0.82rem',
         gap: 1,
         textTransform: 'capitalize',
-        '&:hover': {
-          bgcolor: '#f9f8f9'
+        transition: 'all 0.4s ease-in-out',
+        '&:hover, &:active': {
+          bgcolor: '#f9f8f9',
+          paddingRight: '20px'
         },
         '& p, & small': {
           background:
