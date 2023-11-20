@@ -2,13 +2,12 @@ import { Container, Stack } from '@mui/material'
 import React from 'react'
 import { ManageHeader } from './atoms'
 import { Divider } from '../components/common'
-import { ContentTypes } from './molecules'
-import SelectTypes from './molecules/SelectTypes'
-import Actions from './molecules/Actions'
+import { ContentTypes, Actions } from './molecules'
+import { ManageProvider } from '../context'
 
 export default function Manage() {
   return (
-    <>
+    <ManageProvider>
       <Container
         maxWidth={false}
         disableGutters
@@ -31,6 +30,6 @@ export default function Manage() {
       </Container>
 
       <Actions />
-    </>
+    </ManageProvider>
   )
 }

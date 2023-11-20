@@ -1,12 +1,12 @@
+'use client'
 import { Button, Typography } from '@/app/components/common'
+import { useManage } from '@/app/context'
 import { Box, Button as MuiButton, Container, Stack } from '@mui/material'
 import React from 'react'
 
-interface Props {
-  onNext?: () => void
-  onBack?: () => void
-}
-export default function Actions(props: Props) {
+export function Actions() {
+  const { onNext, onBack } = useManage()
+
   return (
     <Container
       maxWidth={false}
@@ -26,7 +26,7 @@ export default function Actions(props: Props) {
     >
       <Button
         as='Outlined'
-        onClick={props.onBack}
+        onClick={onBack}
         label='Back'
         sx={{
           width: '100%',
@@ -36,7 +36,7 @@ export default function Actions(props: Props) {
 
       <Button
         label='Next'
-        onClick={props.onNext}
+        onClick={onNext}
         as='Solid'
         sx={{
           width: '100%',
@@ -70,3 +70,4 @@ export default function Actions(props: Props) {
     </Container>
   )
 }
+export default Actions

@@ -7,16 +7,13 @@ import { Box, Stack } from '@mui/material'
 import { useState } from 'react'
 import SelectTypes, { Options } from './SelectTypes'
 import { TypeRange } from '.'
+import { useManage } from '@/app/context'
 
 interface Props {}
 export function ContentTypes(props: Props) {
   const [active, setActive] = useState('Fun')
 
-  const [formData, setFormData] = useState({
-    contentType: active,
-    subType: '',
-    wordRange: ''
-  })
+  const { values, onSetValues } = useManage()
 
   /*
    * Filter out the options
@@ -32,7 +29,6 @@ export function ContentTypes(props: Props) {
       )
     }, [])
 
-  console.log(formData)
   return (
     <Stack>
       <TypesComponent label='What type of content are you creating?' />
@@ -49,7 +45,7 @@ export function ContentTypes(props: Props) {
             key={content.type}
             onClick={() => {
               setActive(content.type)
-              setFormData(prev => ({ ...prev, contentType: content.type }))
+              onSetValues(prev => ({ ...prev, contentType: content.type }))
             }}
             isActive={content.type.toLowerCase() === active.toLowerCase()}
           />
@@ -58,10 +54,10 @@ export function ContentTypes(props: Props) {
       <SelectTypes
         type={active}
         options={options}
-        value={formData.subType}
+        value={values.subType}
         onChange={o => {
           if (o?.value) {
-            setFormData(prev => ({
+            onSetValues(prev => ({
               ...prev,
               subType: o.value
             }))
@@ -69,12 +65,12 @@ export function ContentTypes(props: Props) {
         }}
       />
       <TypeRange
-        onChange={e =>
-          setFormData(prev => ({
+        onChange={e => {
+          onSetValues(prev => ({
             ...prev,
             wordRange: e.target.value
           }))
-        }
+        }}
       />
     </Stack>
   )
