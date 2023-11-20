@@ -18,13 +18,37 @@ export default function Actions(props: Props) {
         py: 3,
         px: 4,
         display: 'flex',
+        gap: 1,
         justifyContent: 'space-between',
+        flexDirection: ['column', 'row', 'row', 'row'],
         alignItems: 'center'
       }}
     >
-      <Button as='Outlined' onClick={props.onBack} label='Back' />
+      <Button
+        as='Outlined'
+        onClick={props.onBack}
+        label='Back'
+        sx={{
+          width: '100%',
+          maxWidth: ['none', 'fit-content', 'fit-content', 'fit-content']
+        }}
+      />
 
-      <Button label='Next' onClick={props.onNext} as='Solid'>
+      <Button
+        label='Next'
+        onClick={props.onNext}
+        as='Solid'
+        sx={{
+          width: '100%',
+          maxWidth: ['none', 'fit-content', 'fit-content', 'fit-content'],
+          justifyContent: [
+            'center',
+            'space-between',
+            'space-between',
+            'space-between'
+          ]
+        }}
+      >
         <Box
           display='flex'
           sx={{ alignItems: 'center', justifyContent: 'center' }}

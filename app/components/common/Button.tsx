@@ -15,10 +15,9 @@ export function Button({
   const outlined = (
     <MuiButton
       variant='outlined'
-      {...rest}
       sx={{
         borderRadius: '100vmax',
-        maxWidth: 'fit-content',
+        // maxWidth: 'fit-content',
         borderColor: 'text.secondary',
         color: 'common.white',
         fontWeight: 300,
@@ -28,7 +27,8 @@ export function Button({
         textTransform: 'capitalize',
         '&:hover': {
           borderColor: 'text.secondary'
-        }
+        },
+        ...rest.sx
       }}
     >
       {label}
@@ -37,6 +37,7 @@ export function Button({
   const solid = (
     <MuiButton
       variant='contained'
+      {...rest}
       sx={{
         borderRadius: '100vmax',
         background: 'white',
@@ -46,6 +47,7 @@ export function Button({
         minWidth: 130,
         fontWeight: 300,
         fontSize: '0.82rem',
+        gap: 1,
         textTransform: 'capitalize',
         '&:hover': {
           bgcolor: '#f9f8f9'
@@ -56,9 +58,9 @@ export function Button({
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           fontSize: '0.9rem'
-        }
+        },
+        ...rest.sx
       }}
-      {...rest}
     >
       <Typography>{label}</Typography>
       {children}
