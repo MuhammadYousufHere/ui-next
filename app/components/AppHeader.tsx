@@ -1,10 +1,10 @@
 import { AppBar, Toolbar, styled, Button, Box, Stack } from '@mui/material'
 import React from 'react'
 import { Avatar, Typography } from './common'
-import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined'
 import ThemeSwitch from './ThemeSwitch'
 import { RootStyle, Wrapper } from './styled'
 import { Navigater } from './atoms'
+import Image from 'next/image'
 
 export default function AppHeader() {
   return (
@@ -31,7 +31,14 @@ export default function AppHeader() {
               >
                 Media management{' '}
               </Typography>
-              <DriveFileRenameOutlineOutlinedIcon fontSize='small' />
+              <Image
+                width={16}
+                height={16}
+                alt='edit'
+                loading='eager'
+                quality={100}
+                src='static/icons/edit.svg'
+              />
             </Box>
             <Typography
               variant='subtitle2'
